@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: biolinks_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www/html
+    # ADICIONADO: Define o usuário do container para o usuário local
+    user: "1001:1001"
+    command: php artisan serve --host=0.0.0.0 --port=8000
