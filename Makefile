@@ -14,6 +14,17 @@ stop: down
 
 restart: down up
 
+# ...existing code...
+
+# Regra para passar qualquer comando após 'artisan' como argumento
+artisan-%:
+	docker-compose exec $(APP_SERVICE) php artisan $*
+
+artisan-%-%:
+	docker-compose exec $(APP_SERVICE) php artisan $* $**
+
+# ...existing code...
+
 # Comandos do Artisan (executados dentro do container)
 about:
 	docker-compose exec $(APP_SERVICE) php artisan about
@@ -24,8 +35,14 @@ artisan:
 migrate:
 	docker-compose exec $(APP_SERVICE) php artisan migrate
 
+fresh:
+	docker-compose exec $(APP_SERVICE) php artisan migrate:fresh $1
+
 controller:
 	docker-compose exec $(APP_SERVICE) php artisan make:controller $(NAME) $(ARGS)
+
+view:
+	docker-compose exec $(APP_SERVICE) php artisan make:view
 
 seed:
 	docker-compose exec $(APP_SERVICE) php artisan db:seed
