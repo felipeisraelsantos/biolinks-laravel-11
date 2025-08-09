@@ -7,7 +7,7 @@
                 {{ $message }}
             </div>
         @endif
-        <form action="/login" method="post">
+        <form action="{{ route('login') }}" method="post">
             @csrf
             <div>
                 <input type="email" name="email" placeholder="E-mail" />
