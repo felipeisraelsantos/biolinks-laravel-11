@@ -57,7 +57,7 @@ config-cache:
 	docker-compose exec $(APP_SERVICE) php artisan config:cache
 
 route-list:
-	docker-compose exec $(APP_SERVICE) php artisan route:list
+	docker-compose exec $(APP_SERVICE) php artisan route:list -v
 
 # Comandos de Composer
 composer-install:
