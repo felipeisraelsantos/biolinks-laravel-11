@@ -41,6 +41,9 @@ fresh:
 controller:
 	docker-compose exec $(APP_SERVICE) php artisan make:controller $(NAME) $(ARGS)
 
+model:
+	docker-compose exec $(APP_SERVICE) php artisan make:model
+
 view:
 	docker-compose exec $(APP_SERVICE) php artisan make:view
 
