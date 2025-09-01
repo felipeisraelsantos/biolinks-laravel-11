@@ -38,6 +38,9 @@ migrate:
 fresh:
 	docker-compose exec $(APP_SERVICE) php artisan migrate:fresh $1
 
+fresh-seed:
+	docker-compose exec $(APP_SERVICE) php artisan migrate:fresh --seed
+
 controller:
 	docker-compose exec $(APP_SERVICE) php artisan make:controller $(NAME) $(ARGS)
 
@@ -49,6 +52,9 @@ view:
 
 seed:
 	docker-compose exec $(APP_SERVICE) php artisan db:seed
+
+seeder:
+	docker-compose exec $(APP_SERVICE) php artisan make:seeder $(c)
 
 rollback:
 	docker-compose exec $(APP_SERVICE) php artisan migrate:rollback
@@ -63,6 +69,9 @@ route-list:
 	docker-compose exec $(APP_SERVICE) php artisan route:list -v
 
 # Comandos de Composer
+composer:
+	docker-compose exec $(APP_SERVICE) composer require ${require} --dev
+
 composer-install:
 	docker-compose exec $(APP_SERVICE) composer install
 
