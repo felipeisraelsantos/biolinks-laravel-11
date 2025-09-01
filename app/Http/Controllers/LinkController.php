@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreLinkRequest;
 use App\Http\Requests\UpdateLinkRequest;
 use App\Models\Link;
+use App\Models\User;
 
 class LinkController extends Controller
 {
@@ -22,7 +23,10 @@ class LinkController extends Controller
      */
     public function store(StoreLinkRequest $request)
     {
-        Link::query()->create(
+        /** @var User $user */
+        $user = auth()->user();
+
+        $user->links()->create(
             $request->validated()
         );
 
@@ -34,7 +38,7 @@ class LinkController extends Controller
      */
     public function edit(Link $link)
     {
-        //
+        return view('links.edit', compact('link'));
     }
 
     /**
@@ -42,7 +46,10 @@ class LinkController extends Controller
      */
     public function update(UpdateLinkRequest $request, Link $link)
     {
-        //
+        $link->fill($request->validated())->save();
+
+        return to_route('dashboard')->with('message', 'Alterado com sucesso !!!');
+
     }
 
     /**
@@ -50,6 +57,10 @@ class LinkController extends Controller
      */
     public function destroy(Link $link)
     {
-        //
+        // dd($link);
+        $link->delete();
+
+        return to_route('dashboard')->with('message', 'Deletado com sucesso !!!');
+
     }
 }
