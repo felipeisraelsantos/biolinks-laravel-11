@@ -49,7 +49,6 @@ class LinkController extends Controller
         $link->fill($request->validated())->save();
 
         return to_route('dashboard')->with('message', 'Alterado com sucesso !!!');
-
     }
 
     /**
@@ -60,7 +59,6 @@ class LinkController extends Controller
         $link->delete();
 
         return to_route('dashboard')->with('message', 'Deletado com sucesso !!!');
-
     }
 
     public function up(Link $link)
@@ -70,11 +68,10 @@ class LinkController extends Controller
         return back();
     }
 
-     public function down(Link $link)
+    public function down(Link $link)
     {
         $link->moveDown();
 
         return back();
     }
-
 }

@@ -44,6 +44,9 @@ fresh-seed:
 controller:
 	docker-compose exec $(APP_SERVICE) php artisan make:controller $(NAME) $(ARGS)
 
+policy:
+	docker-compose exec $(APP_SERVICE) php artisan make:policy
+
 model:
 	docker-compose exec $(APP_SERVICE) php artisan make:model
 

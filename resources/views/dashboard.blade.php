@@ -7,6 +7,7 @@
 
     <a href="{{ route('links.create') }}"> Criar </a>
 
+    <h2>User::{{auth()->id()}}</h2>
     <ul>
         @foreach ($links as $link)
             <li style="display: flex;">
@@ -27,7 +28,7 @@
                     </form>
                 @endunless
 
-                <a href="{{route('links.edit', $link)}}">{{ $link->name }}</a>
+                <a href="{{route('links.edit', $link)}}">{{$link->id}} {{ $link->name }}</a>
                 <form action="{{route('links.destroy', $link)}}" method="post" onsubmit="return confirm('Tem certeza ?')">
                     @csrf
                     @method('DELETE')
