@@ -12,7 +12,6 @@ use Illuminate\Validation\Rules\Password;
  * @property-read string $email
  * @property-read string $password
  *
- * @author Felipe Israel <felipe.portes@superlogica.com>
  */
 class RegisterRequest extends FormRequest
 {
