@@ -38,6 +38,9 @@ migrate:
 migration:
 	docker-compose exec $(APP_SERVICE) php artisan make:migration
 
+rule:
+	docker-compose exec $(APP_SERVICE) php artisan make:rule
+
 fresh:
 	docker-compose exec $(APP_SERVICE) php artisan migrate:fresh $1
 
