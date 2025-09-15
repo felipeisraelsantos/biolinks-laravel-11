@@ -35,6 +35,9 @@ artisan:
 migrate:
 	docker-compose exec $(APP_SERVICE) php artisan migrate
 
+migration:
+	docker-compose exec $(APP_SERVICE) php artisan make:migration
+
 fresh:
 	docker-compose exec $(APP_SERVICE) php artisan migrate:fresh $1
 
@@ -46,6 +49,9 @@ controller:
 
 policy:
 	docker-compose exec $(APP_SERVICE) php artisan make:policy
+
+request:
+	docker-compose exec $(APP_SERVICE) php artisan make:request
 
 model:
 	docker-compose exec $(APP_SERVICE) php artisan make:model
