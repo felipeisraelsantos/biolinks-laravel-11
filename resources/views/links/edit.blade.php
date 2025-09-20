@@ -1,3 +1,4 @@
+<x-layout.app>
 <div>
     <h1>Editar um link :: {{ $link->id }}</h1>
 
@@ -29,3 +30,4 @@
         </form>
     </div>
 </div>
+</x-layout.app>

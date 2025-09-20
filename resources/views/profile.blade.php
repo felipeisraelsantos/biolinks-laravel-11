@@ -1,3 +1,4 @@
+<x-layout.app>
 <div>
     <h1>Profile</h1>
 
@@ -46,3 +47,4 @@
         </form>
     </div>
 </div>
+</x-layout.app>

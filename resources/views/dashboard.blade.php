@@ -1,3 +1,4 @@
+<x-layout.app>
 <div>
     <h1>Dashboard</h1>
 
@@ -41,3 +42,4 @@
         @endforeach
     </ul>
 </div>
+</x-layout.app>
