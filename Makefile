@@ -65,6 +65,9 @@ model:
 view:
 	docker-compose exec $(APP_SERVICE) php artisan make:view
 
+component:
+	docker-compose exec $(APP_SERVICE) php artisan make:component
+
 seed:
 	docker-compose exec $(APP_SERVICE) php artisan db:seed
 
