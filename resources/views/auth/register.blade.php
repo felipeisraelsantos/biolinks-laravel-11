@@ -1,42 +1,21 @@
 <x-layout.app>
-<div>
-    <h1>Resgister</h1>
 
-    <div>
-        @if($message = session()->get('message'))
-            <div>
-                {{ $message }}
-            </div>
-        @endif
-        <form action="{{ route('register') }}" method="post">
-            @csrf
-             <div>
-                <input type="name" name="name" placeholder="Nome" />
-                @error('name')
-                <span>{{ $message }}</span>
-                @enderror
-            </div>
-            <br>
-            <div>
-                <input name="email" placeholder="E-mail" />
-                @error('email')
-                <span>{{ $message }}</span>
-                @enderror
-            </div>
-            <br>
-             <div>
-                <input name="email_confirmation" placeholder="Confirmação de E-mail" />
-            </div>
-            <br>
-            <div>
-                <input type="password" name="password" placeholder="Senha" />
-                @error('password')
-                <span>{{ $message }}</span>
-                @enderror
-            </div>
-            <br>
-            <button>Registrar</button>
-        </form>
-    </div>
-</div>
+    <x-container>
+        <x-card title="Register">
+
+            <x-form :route="'register'" post id="register-form">
+
+                <x-input name="name" type="name" placeholder="Nome" />
+                <x-input name="email" type="email" placeholder="E-mail" />
+                <x-input name="email_confirmation" placeholder="E-mail de confirmação" />
+                <x-input name="password" type="password" placeholder="Senha" />
+
+            </x-form>
+
+            <x-slot:actions>
+                <x-button type="submit" form="register-form">Registrar</x-button>
+            </x-slot:actions>
+
+        </x-card>
+    </x-container>
 </x-layout.app>
