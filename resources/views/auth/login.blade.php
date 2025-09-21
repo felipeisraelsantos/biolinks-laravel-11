@@ -1,38 +1,19 @@
 <x-layout.app>
-    <div class="mx-auto max-w-screen-md flex items-center justify-center p-28">
 
-        <div class="card bg-base-100 w-96 shadow-xl">
-            <div class="card-body ">
-                <h1 class="card-title">Login</h1>
+    <x-container>
+        <x-card title="Login">
+            <x-form :route="('login')" post id="login-form">
 
-                <div class="flex-col space-y-2">
-                    {{-- @if ($message = session()->get('message'))
-                        <div>
-                            {{ $message }}
-                        </div>
-                    @endif --}}
-                    <form action="{{ route('login') }}" method="post" class="space-y-2" id="login-form">
-                        @csrf
-                        <div>
-                            <input class="input input-bordered" type="email" name="email" placeholder="E-mail" />
-                            @error('email')
-                                <span class="text-sm text-error">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div>
-                            <input class="input input-bordered" type="password" name="password" placeholder="Senha" />
-                            @error('password')
-                                <span class="text-sm text-error">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </form>
+                <x-input name="email" type="email" placeholder="E-mail" value="{{ old('email') }}" />
+                <x-input name="password" type="password" placeholder="Senha" />
 
-                    <div class="card-actions">
-                        <button class="btn btn-primary" type="submit" form="login-form">Logar</button>
-                    </div>
+            </x-form>
 
-                </div>
-            </div>
-        </div>
-    </div>
+            <x-slot:actions>
+                <x-button type="submit" form="login-form">Logar</x-button>
+            </x-slot:actions>
+
+        </x-card>
+    </x-container>
+
 </x-layout.app>
