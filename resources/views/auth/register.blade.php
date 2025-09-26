@@ -1,6 +1,6 @@
 <x-layout.app>
 
-    <x-container>
+    <x-container class="h-screen">
         <x-card title="Register">
 
             <x-form :route="'register'" post id="register-form">
@@ -13,6 +13,7 @@
             </x-form>
 
             <x-slot:actions>
+                <x-a :href="route('login')" class="link-primary link-hover">Already have an account! </x-a>
                 <x-button type="submit" form="register-form">Registrar</x-button>
             </x-slot:actions>
 
