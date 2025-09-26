@@ -25,9 +25,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', LogoutController::class)->middleware('auth')->name('logout');
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
+    Route::get('/links/create', [LinkController::class, 'create'])->name('links.create');
+    Route::post('/links/create', [LinkController::class, 'store']);
+
     Route::middleware('can:atualizar,link')->group(function () {
-        Route::get('/links/create', [LinkController::class, 'create'])->name('links.create');
-        Route::post('/links/create', [LinkController::class, 'store']);
         Route::get('/links/{link}/edit', [LinkController::class, 'edit'])->name('links.edit');
         Route::put('/links/{link}/edit', [LinkController::class, 'update']);
         Route::delete('/links/{link}', [LinkController::class, 'destroy'])->name('links.destroy');
@@ -36,8 +37,8 @@ Route::middleware('auth')->group(function () {
         Route::patch('/links/{link}/down', [LinkController::class, 'down'])->name('links.down');
     });
 
-    Route::get('/profile',[ProfileController::class, 'index'])->name('profile');
-    Route::put('/profile',[ProfileController::class, 'update']);
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::put('/profile', [ProfileController::class, 'update']);
 });
 
-Route::get('/{user:handler}',BioLinkController::class);
+Route::get('/{user:handler}', BioLinkController::class);
