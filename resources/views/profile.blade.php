@@ -5,14 +5,9 @@
             <x-form :route="route('profile')" put id="profile-form" enctype="multipart/form-data">
 
                 <div class="flex gap-2 items-center">
-                    <div class="avatar">
-                        <div class="w-24 rounded-xl">
+                    <x-img src="/storage/{{ $user->photo }}" alt="Profile picture"/>
 
-                            <img src="/storage/{{ $user->photo }}" alt="Profile picture">
-                            <input type="file" name="photo" />
-                        </div>
 
-                    </div>
                     <x-file-input name="photo" />
                 </div>
 
