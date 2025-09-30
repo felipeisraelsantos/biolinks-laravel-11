@@ -1,6 +1,6 @@
 <x-layout.app>
 
-    <x-container class="h-full">
+    <x-container>
         <x-card title="Create a new link">
             <x-form :route="route('links.create')" post id="link-form">
                 <x-input name="link" type="link" placeholder="Link" value="{{old('link')}}"/>

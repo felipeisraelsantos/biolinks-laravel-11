@@ -1,6 +1,6 @@
 <x-layout.app>
 
-    <x-container class="h-full">
+    <x-container>
         <x-card title="Profile">
             <x-form :route="route('profile')" put id="profile-form" enctype="multipart/form-data">
 
