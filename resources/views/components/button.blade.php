@@ -13,7 +13,7 @@
 <{{ $tag }} {{ $href ? "href=$href" : '' }}
     {{ $attributes->class([
         'btn btn-primary',
-        'btn-block' => $block,
+        'btn-wide' => $block,
         'btn-outline' => $outline,
         'btn-info' => $info,
         'btn-ghost' => $ghost
