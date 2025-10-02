@@ -4,6 +4,7 @@
         <div class="absolute top-10 left-10 flex flex-col gap-4">
             <x-button ghost :href="route('profile')">Update Profile</x-button>
             <x-button ghost :href="route('links.create')">Link Create</x-button>
+            <x-button ghost :href="route('logout')">Logout</x-button>
         </div>
         <div class="text-center space-y-2 w-2/3">
             <x-img src="/storage/{{ $user->photo }}" alt="Profile picture" />
